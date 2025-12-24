@@ -71,7 +71,7 @@ impl App for SnowDemo {
         });
 
         // Render the Settings Window
-        let mut window_rect = ctx.content_rect();
+        let mut window_rect = ctx.screen_rect();
         let window_response = egui::Window::new("Settings")
             .default_width(300.0)
             .show(ctx, |ui| {

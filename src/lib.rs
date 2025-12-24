@@ -124,7 +124,7 @@ impl Snow {
     ///
     /// This should be called every frame. It automatically requests a repaint.
     pub fn show(self, ctx: &Context) {
-        let screen_rect = self.custom_area.unwrap_or_else(|| ctx.content_rect());
+        let screen_rect = self.custom_area.unwrap_or_else(|| ctx.screen_rect());
         if screen_rect.width() <= 0.0 || screen_rect.height() <= 0.0 {
             return;
         }
