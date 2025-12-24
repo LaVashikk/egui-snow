@@ -1,6 +1,6 @@
 [package]
 name = "egui-snow"
-version = "0.30.0"
+version = "0.31.0"
 edition = "2021"
 authors = ["laVashik <me@lavashik.dev>"]
 description = "A lightweight, zero-layout-impact snowfall effect widget for egui."
@@ -14,11 +14,11 @@ categories = ["gui", "visualization"]
 include = ["src/**/*", "LICENSE", "README.md"]
 
 [dependencies]
-egui = { version = "0.30" }
+egui = { version = "0.31" }
 rand = "0.9.2"
 
 [dev-dependencies]
-eframe = { version = "0.30", default-features = false, features = ["default_fonts", "glow", "wayland", "x11"] }
+eframe = { version = "0.31", default-features = false, features = ["default_fonts", "glow", "wayland", "x11"] }
 
 [target.'cfg(target_arch = "wasm32")'.dependencies]
 wasm-bindgen-futures = "0.4"
