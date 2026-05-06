@@ -50,8 +50,8 @@ impl Default for SnowDemo {
 }
 
 impl App for SnowDemo {
-    fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
-        egui::CentralPanel::default().show(ctx, |ui| {
+    fn ui(&mut self, ui: &mut egui::Ui, _frame: &mut eframe::Frame) {
+        egui::CentralPanel::default().show_inside(ui, |ui| {
             ui.heading("❄ egui-snow ❄");
             ui.label("High performance particle system for egui.");
             ui.label("This application demonstrates the capabilities of the snowfall effect widget.");
@@ -61,20 +61,20 @@ impl App for SnowDemo {
 
             ui.add_space(20.0);
             if ui.button("Toggle Dark/Light Mode").clicked() {
-                let visuals = if ctx.style().visuals.dark_mode {
+                let visuals = if ui.style().visuals.dark_mode {
                     egui::Visuals::light()
                 } else {
                     egui::Visuals::dark()
                 };
-                ctx.set_visuals(visuals);
+                ui.set_visuals(visuals);
             }
         });
 
         // Render the Settings Window
-        let mut window_rect = ctx.content_rect();
+        let mut window_rect = ui.content_rect();
         let window_response = egui::Window::new("Settings")
             .default_width(300.0)
-            .show(ctx, |ui| {
+            .show(ui, |ui| {
                 ui.heading("General");
                 ui.checkbox(&mut self.active, "Effect Active");
                 ui.horizontal(|ui| {
@@ -185,7 +185,7 @@ impl App for SnowDemo {
             };
 
             snow = snow.area(window_rect);
-            snow.show(ctx);
+            snow.show(ui);
         }
     }
 }
