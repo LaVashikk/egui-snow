@@ -17,8 +17,8 @@ It renders particles on top of your UI (or behind it) without affecting layout a
 Add to `Cargo.toml`:
 ```toml
 [dependencies]
-egui = "0.33"
-egui-snow = "0.33"
+egui = "0.34"
+egui-snow = "0.34"
 ```
 
 In your update loop:
@@ -26,9 +26,9 @@ In your update loop:
 ```rust
 use egui_snow::Snow;
 
-fn update(ctx: &egui::Context, ...) {
+fn ui(&mut self, ui: &mut egui::Ui, ...) {
     // Render your UI...
-    egui::CentralPanel::default().show(ctx, |ui| {
+    egui::CentralPanel::default().show_inside(ui, |ui| {
         ui.label("Hello, Winter!");
     });
 
@@ -37,6 +37,6 @@ fn update(ctx: &egui::Context, ...) {
         .color(egui::Color32::from_white_alpha(200))
         .speed(40.0..=100.0)
         .size(0.5..=3.0)
-        .show(ctx);
+        .show(ui);
 }
 ```
