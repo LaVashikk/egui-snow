@@ -28,7 +28,7 @@ use egui_snow::Snow;
 
 fn ui(&mut self, ui: &mut egui::Ui, ...) {
     // Render your UI...
-    egui::CentralPanel::default().show_inside(ui, |ui| {
+    egui::CentralPanel::default().show(ui, |ui| {
         ui.label("Hello, Winter!");
     });
 
