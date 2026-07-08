@@ -51,7 +51,7 @@ impl Default for SnowDemo {
 
 impl App for SnowDemo {
     fn ui(&mut self, ui: &mut egui::Ui, _frame: &mut eframe::Frame) {
-        egui::CentralPanel::default().show_inside(ui, |ui| {
+        egui::CentralPanel::default().show(ui, |ui| {
             ui.heading("❄ egui-snow ❄");
             ui.label("High performance particle system for egui.");
             ui.label("This application demonstrates the capabilities of the snowfall effect widget.");
