@@ -43,7 +43,7 @@ impl Snow {
     /// Creates a new snow effect with a unique ID.
     pub fn new(id_source: impl std::hash::Hash + std::fmt::Debug) -> Self {
         Self {
-            id: Id::new(id_source),
+            id: Id::unique(id_source),
             color: Color32::WHITE,
             density: 50,
             layer_order: Order::Foreground,
